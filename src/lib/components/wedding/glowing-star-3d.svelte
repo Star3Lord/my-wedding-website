@@ -20,7 +20,7 @@
   let groupRef = $state<Group>();
   let haloRef = $state<Mesh>();
 
-  const haloTexture = useTexture('/spaceship/textures/star.png');
+  const haloTexture = useTexture('/wedding/textures/star.png');
 
   const starMaterial = new MeshStandardMaterial({
     color: new Color('#ffd700'),

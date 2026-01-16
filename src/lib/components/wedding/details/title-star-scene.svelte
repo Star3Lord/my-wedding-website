@@ -9,7 +9,7 @@
   scene.background = null;
   renderer.setClearColor(0x000000, 0);
 
-  const glowMap = useTexture('/spaceship/textures/star.png');
+  const glowMap = useTexture('/wedding/textures/star.png');
 
   let rot = $state(0);
   let pulse = $state(0);
