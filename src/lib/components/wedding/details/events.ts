@@ -48,7 +48,7 @@ export const weddingEvents: WeddingEvent[] = [
   {
     id: 'Dandiya Night',
     title: 'Dandiya Night',
-    date: 'January 1, 2026',
+    date: 'January 21st, 2026',
     time: '11:00 AM',
     venue: 'The Grand Parampara',
     address: 'PTS Mana, Chowk, Dharampura Rd, Raipur, Chhattisgarh, Pincode - 492101',
