@@ -126,7 +126,7 @@
   ></div>
 
   {#if isVisible}
-    <div class="pointer-events-auto absolute left-5 top-5 md:left-8 md:top-8">
+    <div class="pointer-events-auto absolute left-5 top-5 z-20 md:left-8 md:top-8">
       <a
         href={resolve('/')}
         class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-black/25 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/70 backdrop-blur-md transition hover:border-white/20 hover:bg-black/35 hover:text-white"
