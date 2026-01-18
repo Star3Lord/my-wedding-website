@@ -14,7 +14,7 @@ export interface WeddingEvent {
 export const weddingEvents: WeddingEvent[] = [
   {
     id: 'welcome',
-    title: 'Welcome Dinner',
+    title: 'Welcome',
     date: 'January 20th, 2026',
     time: '10:00 AM',
     venue: 'The Grand Parampara',
@@ -57,6 +57,17 @@ export const weddingEvents: WeddingEvent[] = [
     mapUrl: 'https://maps.app.goo.gl/51ZwLe2rd4s86kuS9',
   },
   {
+    id: 'Wedding',
+    title: 'Wedding',
+    date: 'January 23rd, 2026',
+    time: '4:00 PM (please arrive by 3:30 PM)',
+    venue: 'Chandragiri Fort',
+    address: 'Jawahar Marg, Opp. to GTB Nagar, Bhubaneswar, Odisha, Pincode - 492101',
+    dressCode: 'Traditional / Semi-formal',
+    highlights: ['Wedding ceremony', 'Wedding dinner'],
+    mapUrl: 'https://maps.app.goo.gl/51ZwLe2rd4s86kuS9',
+  },
+  {
     id: 'Reception',
     title: 'Reception',
     date: 'January 24th, 2026',
@@ -64,7 +75,7 @@ export const weddingEvents: WeddingEvent[] = [
     venue: 'The Grand Parampara',
     address: 'PTS Mana, Chowk, Dharampura Rd, Raipur, Chhattisgarh, Pincode - 492101',
     dressCode: 'Formal / Semi-formal',
-    highlights: ['Dinner & drinks', 'Music band', 'Photo booth'],
+    highlights: ['Wedding reception', 'Dinner & drinks', 'Music band', 'Photo booth'],
     mapUrl: 'https://maps.app.goo.gl/51ZwLe2rd4s86kuS9',
   }
 ];

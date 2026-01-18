@@ -6,8 +6,8 @@
   import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
   import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
   import { Color, Vector2, type Group } from 'three';
-  import GalaxyParticles from './galaxy-particles.svelte';
-  import Groom from './groom.svelte';
+import GalaxyParticles from './galaxy-particles.svelte';
+import Couple from './couple.svelte';
 
   const { scene, size, camera, renderer } = useThrelte();
 
@@ -93,7 +93,7 @@
 
   // Interaction state
   let isInteracting = $state(false);
-  let groomRef = $state.raw<Group>();
+  let coupleRef = $state.raw<Group>();
 
   // Custom render task with Big Bang animation
   const { renderStage } = useThrelte();
@@ -243,8 +243,8 @@
   <!-- Galaxy Particles -->
   <GalaxyParticles particleCount={120000} innerRadius={8} outerRadius={45} />
 
-  <!-- Groom at Center -->
-  <Groom bind:ref={groomRef} position={[0, -1, 0]} scale={2.5} {isInteracting} />
+  <!-- Bride & Groom at Center -->
+  <Couple bind:ref={coupleRef} position={[0, -1, 0]} scale={2.2} {isInteracting} />
 
   <!-- Ground reflection plane (subtle) -->
   <T.Mesh rotation.x={-Math.PI / 2} position.y={-3.5} receiveShadow>

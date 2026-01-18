@@ -155,7 +155,7 @@
       <!-- Compact Details Button -->
       <a
         bind:this={btnEl}
-        href={resolve('/attempt-2/details')}
+        href={resolve('/details')}
         class="relative flex h-6 shrink-0 items-center justify-center overflow-hidden rounded-full border border-amber-400/30 bg-amber-400/5 text-amber-200/80 transition-colors duration-200 hover:border-amber-400/50 hover:bg-amber-400/10 hover:text-amber-200 sm:h-7"
         style="width: 24px;"
       >
