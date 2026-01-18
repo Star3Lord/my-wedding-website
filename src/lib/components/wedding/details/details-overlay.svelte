@@ -136,8 +136,8 @@
       </a>
     </div>
 
-    <div class="absolute inset-0 flex items-center justify-center px-6 py-10">
-      <div class="w-full max-w-2xl">
+    <div class="pointer-events-auto absolute inset-0 overflow-y-auto px-6 py-16 md:py-10">
+      <div class="mx-auto flex min-h-full w-full max-w-2xl flex-col justify-center">
         <header
           {@attach staggerReveal({ selector: '[data-motion]', delay: 0.05 })}
           class="mb-6 text-center"
@@ -249,7 +249,7 @@
 
     <!-- Modal -->
     <div
-      class="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/12 bg-gradient-to-b from-[#1a1425] to-[#0f0a17] p-8 shadow-2xl"
+      class="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/12 bg-linear-to-b from-[#1a1425] to-[#0f0a17] p-8 shadow-2xl"
     >
       <!-- Close button -->
       <button
@@ -308,7 +308,7 @@
 
         <button
           type="submit"
-          class="mt-4 w-full rounded-lg bg-gradient-to-r from-amber-500 to-rose-500 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-amber-500/20 transition-all duration-300 hover:shadow-amber-500/40"
+          class="mt-4 w-full rounded-lg bg-linear-to-r from-amber-500 to-rose-500 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-amber-500/20 transition-all duration-300 hover:shadow-amber-500/40"
         >
           Unlock Events
         </button>

@@ -113,9 +113,9 @@
       <div
         class="absolute -inset-4 animate-pulse rounded-full bg-linear-to-r from-amber-500/10 via-rose-500/10 to-amber-500/10 blur-xl"
       ></div>
-      <p class="relative font-sans text-xs font-light tracking-widest text-white/40 sm:text-sm md:text-base">
+      <!-- <p class="relative font-sans text-xs font-light tracking-widest text-white/40 sm:text-sm md:text-base">
         ✦ Click & hold to celebrate ✦
-      </p>
+      </p> -->
     </div>
   </div>
 
