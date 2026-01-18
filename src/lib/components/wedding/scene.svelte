@@ -245,18 +245,6 @@ import Couple from './couple.svelte';
 
   <!-- Bride & Groom at Center -->
   <Couple bind:ref={coupleRef} position={[0, -1, 0]} scale={2.2} {isInteracting} />
-
-  <!-- Ground reflection plane (subtle) -->
-  <T.Mesh rotation.x={-Math.PI / 2} position.y={-3.5} receiveShadow>
-    <T.CircleGeometry args={[15, 64]} />
-    <T.MeshStandardMaterial
-      color="#1a0a20"
-      roughness={0.8}
-      metalness={0.2}
-      transparent
-      opacity={0.5}
-    />
-  </T.Mesh>
 </T.Group>
 
 <!-- Charging orb - pulsing energy before explosion -->
