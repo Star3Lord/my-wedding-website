@@ -92,9 +92,20 @@
           href={event.mapUrl}
           target="_blank"
           rel="noreferrer"
-          class="inline-flex items-center justify-center rounded-lg bg-linear-to-r from-amber-500 to-rose-500 px-5 py-3 text-center text-xs font-semibold uppercase tracking-[0.22em] text-white shadow-lg shadow-amber-500/20 transition-all duration-300 hover:shadow-amber-500/40"
+          class="group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full border border-amber-400/25 bg-amber-950/30 px-6 py-3 text-center text-[11px] uppercase tracking-[0.2em] text-amber-200/90 backdrop-blur-sm transition-all duration-500 hover:border-amber-400/50 hover:bg-amber-900/40 hover:text-amber-100 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)]"
         >
-          Open in Maps
+          <!-- Animated shimmer -->
+          <span class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-amber-400/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"></span>
+          <!-- Icon -->
+          <svg class="relative h-3.5 w-3.5 text-amber-400/70 transition-colors group-hover:text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+          <span class="relative font-medium">View on Map</span>
+          <!-- Arrow -->
+          <svg class="relative h-3 w-3 text-amber-400/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-amber-300/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+          </svg>
         </a>
       {/if}
 

@@ -222,12 +222,19 @@
             <button
               type="button"
               onclick={openCodeModal}
-              class="pointer-events-auto group inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-[11px] uppercase tracking-[0.25em] text-white/50 backdrop-blur-md transition hover:border-amber-400/30 hover:bg-black/30 hover:text-amber-200/80"
+              class="pointer-events-auto group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-white/8 bg-white/3 px-5 py-2.5 text-[10px] uppercase tracking-[0.3em] text-white/45 backdrop-blur-sm transition-all duration-500 hover:border-amber-400/20 hover:bg-amber-950/20 hover:text-amber-200/70"
             >
-              <svg class="h-3.5 w-3.5 transition group-hover:text-amber-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              <span>Family &amp; Friends</span>
+              <!-- Subtle pulse glow -->
+              <span class="absolute inset-0 rounded-full bg-amber-400/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+              <span class="relative flex items-center gap-2.5">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full border border-amber-400/20 bg-amber-400/5">
+                  <svg class="h-2.5 w-2.5 text-amber-400/60 transition-colors group-hover:text-amber-300/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </span>
+                <span>Family &amp; Friends</span>
+                <span class="text-amber-400/30 transition-colors group-hover:text-amber-400/50">✦</span>
+              </span>
             </button>
           </div>
         {/if}
@@ -242,77 +249,111 @@
     <!-- Backdrop -->
     <button
       type="button"
-      class="absolute inset-0 bg-black/70 backdrop-blur-sm"
+      class="absolute inset-0 bg-black/80 backdrop-blur-md"
       onclick={closeCodeModal}
       aria-label="Close modal"
     ></button>
 
     <!-- Modal -->
     <div
-      class="relative w-full max-w-sm overflow-hidden rounded-2xl border border-white/12 bg-linear-to-b from-[#1a1425] to-[#0f0a17] p-8 shadow-2xl"
+      class="modal-enter relative w-full max-w-[340px] overflow-hidden rounded-3xl border border-white/8 bg-linear-to-b from-[#12101a] via-[#0d0b12] to-[#080710] p-1 shadow-[0_25px_80px_-15px_rgba(0,0,0,0.8)]"
     >
-      <!-- Close button -->
-      <button
-        type="button"
-        onclick={closeCodeModal}
-        class="absolute right-4 top-4 rounded-full p-1.5 text-white/40 transition hover:bg-white/10 hover:text-white/70"
-        aria-label="Close"
-      >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      <div class="text-center">
-        <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-amber-500/10">
-          <svg class="h-7 w-7 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
-        </div>
-
-        <h3
-          class="font-serif text-xl font-light tracking-wide text-white"
-          style="font-family: 'Playfair Display', serif;"
-        >
-          Family &amp; Friends
-        </h3>
-        <p class="mt-2 text-xs leading-relaxed text-white/50">
-          Enter the code shared with you to view all event details.
-        </p>
-      </div>
-
-      <form
-        class="mt-6"
-        onsubmit={(e) => {
-          e.preventDefault();
-          submitCode();
-        }}
-      >
-        <div class="relative">
-          <input
-            bind:this={codeInputEl}
-            bind:value={codeInput}
-            type="text"
-            placeholder="Enter code"
-            autocomplete="off"
-            autocapitalize="off"
-            class="w-full rounded-lg border bg-black/30 px-4 py-3 text-center text-sm tracking-widest text-white placeholder-white/30 transition focus:outline-none focus:ring-2 focus:ring-amber-400/50 {codeError ? 'border-rose-400/50 shake' : 'border-white/12 focus:border-amber-400/30'}"
-          />
-        </div>
-
-        {#if codeError}
-          <p class="mt-2 text-center text-xs text-rose-400/80">
-            Invalid code. Please try again.
-          </p>
-        {/if}
-
+      <!-- Inner glow border -->
+      <div class="absolute inset-0 rounded-3xl bg-linear-to-b from-amber-400/8 via-transparent to-transparent"></div>
+      
+      <!-- Content wrapper -->
+      <div class="relative rounded-[22px] bg-linear-to-b from-white/2 to-transparent px-8 py-9">
+        <!-- Close button -->
         <button
-          type="submit"
-          class="mt-4 w-full rounded-lg bg-linear-to-r from-amber-500 to-rose-500 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-amber-500/20 transition-all duration-300 hover:shadow-amber-500/40"
+          type="button"
+          onclick={closeCodeModal}
+          class="absolute right-5 top-5 flex h-7 w-7 items-center justify-center rounded-full border border-white/6 bg-white/2 text-white/30 transition-all duration-300 hover:border-white/15 hover:bg-white/5 hover:text-white/60"
+          aria-label="Close"
         >
-          Unlock Events
+          <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
-      </form>
+
+        <div class="text-center">
+          <!-- Decorative icon container -->
+          <div class="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center">
+            <!-- Outer ring -->
+            <div class="absolute inset-0 rounded-full border border-amber-400/10"></div>
+            <!-- Inner glow -->
+            <div class="absolute inset-2 rounded-full bg-linear-to-b from-amber-400/10 to-amber-600/5"></div>
+            <!-- Icon -->
+            <svg class="relative h-6 w-6 text-amber-400/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+
+          <!-- Decorative stars -->
+          <div class="mb-3 flex items-center justify-center gap-3">
+            <span class="text-[10px] text-amber-400/25">✦</span>
+            <span class="h-px w-8 bg-linear-to-r from-transparent via-amber-400/20 to-transparent"></span>
+            <span class="text-[10px] text-amber-400/40">✦</span>
+            <span class="h-px w-8 bg-linear-to-r from-transparent via-amber-400/20 to-transparent"></span>
+            <span class="text-[10px] text-amber-400/25">✦</span>
+          </div>
+
+          <h3
+            class="font-serif text-[22px] font-light tracking-wide text-white/95"
+            style="font-family: 'Playfair Display', serif;"
+          >
+            Family &amp; Friends
+          </h3>
+          <p class="mx-auto mt-2.5 max-w-[220px] text-[11px] leading-relaxed text-white/40">
+            Enter the code shared with you to view all event details
+          </p>
+        </div>
+
+        <form
+          class="mt-7"
+          onsubmit={(e) => {
+            e.preventDefault();
+            submitCode();
+          }}
+        >
+          <div class="relative">
+            <input
+              bind:this={codeInputEl}
+              bind:value={codeInput}
+              type="text"
+              placeholder="• • • • • •"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              class="w-full rounded-xl border bg-black/40 px-5 py-4 text-center font-mono text-sm tracking-[0.4em] text-amber-100/90 placeholder-white/20 transition-all duration-300 focus:outline-none {codeError ? 'border-rose-400/40 shake' : 'border-white/6 focus:border-amber-400/30 focus:bg-black/50 focus:shadow-[0_0_0_4px_rgba(251,191,36,0.05)]'}"
+            />
+          </div>
+
+          {#if codeError}
+            <p class="mt-3 text-center text-[11px] text-rose-400/70">
+              Invalid code — please try again
+            </p>
+          {/if}
+
+          <button
+            type="submit"
+            class="group relative mt-5 w-full overflow-hidden rounded-xl border border-amber-400/20 bg-linear-to-b from-amber-500/15 to-amber-600/10 px-5 py-4 text-[11px] font-medium uppercase tracking-[0.25em] text-amber-200/90 transition-all duration-500 hover:border-amber-400/35 hover:from-amber-500/25 hover:to-amber-600/15 hover:text-amber-100 hover:shadow-[0_10px_40px_-10px_rgba(251,191,36,0.2)]"
+          >
+            <!-- Shimmer effect -->
+            <span class="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-amber-400/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"></span>
+            <span class="relative flex items-center justify-center gap-2">
+              <span>Unlock Events</span>
+              <svg class="h-3 w-3 text-amber-400/60 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-amber-300/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
+          </button>
+        </form>
+        
+        <!-- Bottom decorative element -->
+        <div class="mt-7 flex items-center justify-center">
+          <span class="text-[9px] uppercase tracking-[0.35em] text-white/20">Private invitation</span>
+        </div>
+      </div>
     </div>
   </div>
 {/if}
@@ -325,5 +366,19 @@
   }
   .shake {
     animation: shake 0.5s ease-in-out;
+  }
+  
+  @keyframes modal-enter {
+    0% { 
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+    100% { 
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  .modal-enter {
+    animation: modal-enter 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 </style>
